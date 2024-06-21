@@ -1,13 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@500&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 body {
   @apply leading-[normal] m-0;
   padding: 0;
   overflow-x: hidden;
-  font-family: Lato, sans-serif !important;
+  font-family: "Poppins", sans-serif;
 }
 
 a {
@@ -22,7 +19,7 @@ a {
 
 /* desk Login css */
 .login-page {
-  background-color: #f9f9f9;
+  background-color: #ffffff;
   padding-right: 80px;
 }
 
@@ -56,6 +53,18 @@ a {
   font: 600 14px Lato, sans-serif;
   cursor: pointer;
   border: none;
+}
+.comman_btn2 {
+  border-radius: 12px;
+  border: 2px solid #3e4093;
+  background-color: #ffffff;
+  margin-top: 40px;
+  color: hsla(5, 86%, 53%, 1);
+  text-align: center;
+  padding: 12px 12px;
+  font: 600 14px Lato, sans-serif;
+  cursor: pointer;
+  width: 40%;
 }
 
 @media (max-width: 991px) {
@@ -303,8 +312,6 @@ span.sliderUser.round {
   font: 400 12px Lato, sans-serif;
   text-decoration: none;
 }
-
-
 
 @media (max-width: 991px) {
   .login-button {
@@ -726,13 +733,10 @@ span.sliderUser.round {
   padding: 8px 12px;
 }
 
-
-
-
-body, html { 
+body,
+html {
   overflow: hidden;
-  background-color: #f2f2f2; 
-  font-family: 'Poppins';
+  font-family: "Poppins";
 }
 
 p {
@@ -740,7 +744,7 @@ p {
 }
 
 a {
-  color: #243A73;
+  color: #243a73;
   text-decoration: none;
   transition: 0.5s all;
 }
@@ -761,183 +765,14 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Poppins';
+  font-family: "Poppins";
 }
-
-/*--------------------------------------------------------------
-# Fonts
---------------------------------------------------------------*/
-@font-face {
-  font-family: 'Poppins';
-  src: url('../fonts/Poppins-ExtraBoldItalic.woff2') format('woff2'),
-      url('../fonts/Poppins-ExtraBoldItalic.woff') format('woff');
-  font-weight: bold;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('../fonts/Poppins-ExtraBold.woff2') format('woff2'),
-      url('../fonts/Poppins-ExtraBold.woff') format('woff');
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('../fonts/Poppins-BoldItalic.woff2') format('woff2'),
-      url('../fonts/Poppins-BoldItalic.woff') format('woff');
-  font-weight: bold;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('../fonts/Poppins-ExtraLight.woff2') format('woff2'),
-      url('../fonts/Poppins-ExtraLight.woff') format('woff');
-  font-weight: 200;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('../fonts/Poppins-ExtraLightItalic.woff2') format('woff2'),
-      url('../fonts/Poppins-ExtraLightItalic.woff') format('woff');
-  font-weight: 200;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('../fonts/Poppins-Italic.woff2') format('woff2'),
-      url('../fonts/Poppins-Italic.woff') format('woff');
-  font-weight: normal;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('../fonts/Poppins-Light.woff2') format('woff2'),
-      url('../fonts/Poppins-Light.woff') format('woff');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('../fonts/Poppins-Medium.woff2') format('woff2'),
-      url('../fonts/Poppins-Medium.woff') format('woff');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('../fonts/Poppins-LightItalic.woff2') format('woff2'),
-      url('../fonts/Poppins-LightItalic.woff') format('woff');
-  font-weight: 300;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('../fonts/Poppins-MediumItalic.woff2') format('woff2'),
-      url('../fonts/Poppins-MediumItalic.woff') format('woff');
-  font-weight: 500;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('../fonts/Poppins-Regular.woff2') format('woff2'),
-      url('../fonts/Poppins-Regular.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('../fonts/Poppins-SemiBold.woff2') format('woff2'),
-      url('../fonts/Poppins-SemiBold.woff') format('woff');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('../fonts/Poppins-SemiBoldItalic.woff2') format('woff2'),
-      url('../fonts/Poppins-SemiBoldItalic.woff') format('woff');
-  font-weight: 600;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('../fonts/Poppins-Thin.woff2') format('woff2'),
-      url('../fonts/Poppins-Thin.woff') format('woff');
-  font-weight: 100;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('../fonts/Poppins-ThinItalic.woff2') format('woff2'),
-      url('../fonts/Poppins-ThinItalic.woff') format('woff');
-  font-weight: 100;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('../fonts/Poppins-Black.woff2') format('woff2'),
-      url('../fonts/Poppins-Black.woff') format('woff');
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('../fonts/Poppins-BlackItalic.woff2') format('woff2'),
-      url('../fonts/Poppins-BlackItalic.woff') format('woff');
-  font-weight: 900;
-  font-style: italic;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Poppins';
-  src: url('../fonts/Poppins-Bold.woff2') format('woff2'),
-      url('../fonts/Poppins-Bold.woff') format('woff');
-  font-weight: bold;
-  font-style: normal;
-  font-display: swap;
-}
-
-
-
 
 /*--------------------------------------------------------------
 # Sidebar css 
 --------------------------------------------------------------*/
 .login_page {
   height: 100vh;
-  background-image: url(../img/bg.jpg);
   position: relative;
   background-position: left center;
   background-size: cover;
@@ -949,7 +784,7 @@ h6 {
 }
 .login_page::after {
   position: absolute;
-  content: '';
+  content: "";
   top: 0;
   bottom: 0;
   left: 0;
@@ -1016,7 +851,7 @@ h6 {
   text-align: center;
   padding: 12px 28px;
   border-radius: 12px;
-  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
   border: 0;
   background-color: #3e4093;
   font-weight: 500;
@@ -1053,14 +888,14 @@ h6 {
   text-align: center;
   padding: 12px 18px;
   border-radius: 60px;
-  box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
   font-weight: 500;
   text-transform: capitalize;
 }
 
 .Profile_dropdown .dropdown-menu::after {
   position: absolute;
-  content: '';
+  content: "";
   top: -11px;
   right: 14px;
   border-left: 10px solid transparent;
@@ -1093,7 +928,7 @@ h6 {
   padding: 14px 2px;
 }
 .Profile_dropdown .dropdown-item {
-  color: #243A73;
+  color: #243a73;
   font-weight: 500;
   font-size: 13px;
 }
@@ -1124,6 +959,7 @@ h6 {
 }
 .admin_main {
   display: flex;
+  background-color: #f2f2f2;
 }
 .admin_siderbarr {
   background-color: #fff;
@@ -1134,7 +970,7 @@ h6 {
   height: calc(100vh - 55px);
   overflow: auto;
 }
-.admin_siderbarr::-webkit-scrollbar{
+.admin_siderbarr::-webkit-scrollbar {
   display: none;
 }
 .admin_siderbarr a {
@@ -1152,17 +988,37 @@ h6 {
   max-width: 100%;
   border-radius: 12px;
 }
+.scan_icon {
+  max-width: 100%;
+  width: 120px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+.scan_icon:hover {
+  transform: scale(1.2);
+  color: #3e4093;
+}
+
 .qr_imgs {
   padding: 12px 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 85dvh;
 }
-.admin_siderbarr a i{
-  color: #2d2d2d; 
+.comman_heads {
+  font-size: 12px;
+}
+.admin_siderbarr a i {
+  color: #2d2d2d;
 }
 .admin_siderbarr a.active {
   background: #3e4093;
   color: #fff;
 }
-.admin_siderbarr a.active i{
+.admin_siderbarr a.active i {
   color: #fff;
 }
 .admin_siderbarr a span {
@@ -1175,7 +1031,7 @@ h6 {
   overflow-y: scroll;
   height: calc(100vh - 55px);
 }
-.comman_design { 
+.comman_design {
   background-color: #fff;
   border-radius: 12px;
 }
@@ -1205,24 +1061,24 @@ h6 {
   right: 17px;
   top: 50%;
   transform: translateY(-50%);
-} 
+}
 .table thead th {
-  border-bottom: 0.0625rem solid #E6E6E6;
+  border-bottom: 0.0625rem solid #e6e6e6;
   text-transform: capitalize;
   color: rgba(32, 30, 30, 1);
   font-size: 14px;
   white-space: nowrap;
   font-weight: 600;
-  border-color: #E6E6E6 !important;
+  border-color: #e6e6e6 !important;
   text-transform: uppercase;
   padding: 12px 15px;
 }
-.table>:not(:first-child) {
+.table > :not(:first-child) {
   border-top: 0;
 }
 .table tbody tr td {
   vertical-align: middle;
-  border-color: #E6E6E6;
+  border-color: #e6e6e6;
   white-space: nowrap;
   font-size: 14px;
   transition: 0.3s all;
@@ -1243,9 +1099,8 @@ h6 {
   background: rgba(255, 255, 255, 0.15);
   color: #6e6e6e;
   margin-left: 7px;
-  border: 0.0625rem solid #E6E6E6;
+  border: 0.0625rem solid #e6e6e6;
 }
-
 
 ::-webkit-scrollbar {
   width: 10px;
@@ -1254,22 +1109,22 @@ h6 {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1; 
+  background: #f1f1f1;
   border-radius: 20px;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #3e4093; 
+  background: #3e4093;
   border-radius: 20px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #3e4093; 
+  background: #3e4093;
 }
 
-.table-hover>tbody>tr:hover>* {
+.table-hover > tbody > tr:hover > * {
   --bs-table-accent-bg: rgb(0 92 186 / 9%);
   color: rgba(98, 98, 98, 1);
 }
@@ -1287,7 +1142,7 @@ h6 {
   background: #3e4093;
   color: #fff;
 }
-.Table_btn:hover{
+.Table_btn:hover {
   border: 1px solid #f2f2f2;
   background: #fff;
   color: #3e4093;
@@ -1296,7 +1151,7 @@ h6 {
   color: #2d2d2d;
   font-weight: 600;
   font-size: 12px;
-} 
+}
 .static_data strong {
   color: #fff;
   font-size: 42px;
@@ -1321,7 +1176,7 @@ h6 {
 }
 .static_data::after {
   position: absolute;
-  content: '';
+  content: "";
   top: 0;
   left: 0;
   bottom: 0;
@@ -1380,13 +1235,13 @@ h6 {
   width: 26px;
 }
 .check_toggle {
-  width: 100%; 
+  width: 100%;
 }
 .check_toggle input:checked ~ label::after {
   background-color: #eb3237;
 }
 .userdetails {
-  border: 1px solid #E6E6E6;
+  border: 1px solid #e6e6e6;
   background-color: #fff;
   border-radius: 4px;
   padding: 22px 14px;
@@ -1467,7 +1322,8 @@ h6 {
   border: 0;
   box-shadow: unset !important;
 }
-.filterdropdown .form-select , .filterdropdown .form-control {
+.filterdropdown .form-select,
+.filterdropdown .form-control {
   border-radius: 6px;
   height: 38px;
   padding: 0 8px;
@@ -1488,7 +1344,7 @@ h6 {
 
 .filterdropdown .dropdown-menu::after {
   position: absolute;
-  content: '';
+  content: "";
   top: -11px;
   right: 14px;
   border-left: 10px solid transparent;
@@ -1542,7 +1398,7 @@ h6 {
   margin: 0;
   transition: 0.5s all;
 }
-.followersbox:hover{
+.followersbox:hover {
   transform: translateY(-10px);
 }
 .followersbox_img img {
@@ -1564,21 +1420,21 @@ h6 {
 .Following_btn {
   background: rgba(18, 16, 45, 1);
   color: #fff !important;
-  padding: 10px 20px; 
-  box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+  padding: 10px 20px;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
   border-radius: 50px;
 }
-.Followback_btn{
-  background: linear-gradient(90.45deg, #12102D 3.42%, #E51955 97.71%);
+.Followback_btn {
+  background: linear-gradient(90.45deg, #12102d 3.42%, #e51955 97.71%);
   color: #fff !important;
-  padding: 10px 20px; 
-  box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+  padding: 10px 20px;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
   border-radius: 50px;
 }
-.unfriend_btn{
+.unfriend_btn {
   border: 2px solid rgba(38, 202, 154, 1);
   color: rgba(38, 202, 154, 1) !important;
-  padding: 10px 20px;  
+  padding: 10px 20px;
   border-radius: 50px;
 }
 .postimg_preview img {
@@ -1607,10 +1463,9 @@ h6 {
   height: 40px;
   width: 40px;
 }
-.postchalleng_tabs .nav-tabs { 
+.postchalleng_tabs .nav-tabs {
   border-bottom: 0;
-  border-top: 2px solid rgba(217, 217, 217, 1); 
-
+  border-top: 2px solid rgba(217, 217, 217, 1);
 }
 .postchalleng_tabs .nav-tabs .nav-link {
   background-color: transparent;
@@ -1631,9 +1486,9 @@ h6 {
   margin-right: 6px;
   max-height: 22px;
 }
-.postchalleng_tabs .nav-tabs .nav-link.active{
-  border-top: 2px solid rgba(33, 33, 33, 1); 
-  color: rgba(33, 33, 33, 1); 
+.postchalleng_tabs .nav-tabs .nav-link.active {
+  border-top: 2px solid rgba(33, 33, 33, 1);
+  color: rgba(33, 33, 33, 1);
 }
 .postchalleng_tabs .nav-tabs .nav-link.active img {
   filter: brightness(0);
@@ -1697,7 +1552,7 @@ h6 {
 
 .postchalleng_drop .dropdown-menu::after {
   position: absolute;
-  content: '';
+  content: "";
   top: -11px;
   right: 14px;
   border-left: 10px solid transparent;
@@ -1709,7 +1564,7 @@ h6 {
   width: 100%;
   position: relative;
 }
-.full_post{
+.full_post {
   height: 400px;
 }
 .view_chllngbtn {
@@ -1717,12 +1572,12 @@ h6 {
   font-size: 16px;
   color: rgba(38, 202, 154, 1);
 }
-.small_post{
+.small_post {
   height: 200px;
 }
-.postchalleng_imgbox>img {
+.postchalleng_imgbox > img {
   max-width: 100%;
-  width: 100%; 
+  width: 100%;
   height: 100%;
 }
 .likess img {
@@ -1797,7 +1652,7 @@ h6 {
 .comment_type .form-control {
   height: 38px;
   border-radius: 30px;
-  background: rgba(239, 239, 239, 1); 
+  background: rgba(239, 239, 239, 1);
   border: 0;
   font-size: 16px;
   font-weight: 400;
@@ -1836,7 +1691,7 @@ h6 {
   align-items: center;
   margin-left: 10px;
 }
-.timees_up img{
+.timees_up img {
   margin-right: 4px;
 }
 .staticss_box {
@@ -1851,10 +1706,9 @@ h6 {
 
 .staticss_box::after {
   position: absolute;
-  content: '';
+  content: "";
   top: 0;
   left: 26px;
-  background-image: url(../img/Vector.png);
   height: 100%;
   width: 100%;
   background-repeat: no-repeat;
@@ -1864,20 +1718,19 @@ h6 {
 }
 .staticss_box::before {
   position: absolute;
-  content: '';
+  content: "";
   top: -30px;
   right: 0;
-  background-image: url(../img/dots.png);
   height: 100%;
   width: 100%;
   background-repeat: no-repeat;
   background-position: right;
   background-size: 60px;
 }
-.staticss_box1{
+.staticss_box1 {
   background-color: #3e4093;
 }
-.toggle_btns{
+.toggle_btns {
   display: none;
 }
 .logo_table {
@@ -1923,12 +1776,12 @@ h6 {
   background-color: #3e4093;
   color: #fff;
 }
-.comman_tabs .nav-tabs .nav-item{
-    margin-right: 15px;
+.comman_tabs .nav-tabs .nav-item {
+  margin-right: 15px;
 }
 .comman_tabs .nav-tabs {
   margin-left: 1px;
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
 }
 .editicon {
   background-color: #fff;
@@ -1998,7 +1851,7 @@ h6 {
   line-height: 20px;
 }
 .comman_border_design {
-  border: 1px solid #E0E0E0;
+  border: 1px solid #e0e0e0;
   margin: 0;
   border-radius: 4px;
   padding: 30px 7px 15px;
@@ -2025,10 +1878,10 @@ h6 {
   align-items: center;
   justify-content: center;
   border-radius: 50px;
-  background-color: #ECF2F7;
+  background-color: #ecf2f7;
 }
 .file_upload {
-  border: 1px dashed #E0E0E0;
+  border: 1px dashed #e0e0e0;
   border-radius: 10px;
   height: 95px;
   display: flex;
@@ -2039,7 +1892,7 @@ h6 {
 }
 .file_upload span {
   font-size: 10px;
-  color: #6E7594;
+  color: #6e7594;
   display: block;
   margin-top: 6px;
 }
@@ -2052,10 +1905,10 @@ h6 {
   display: block;
   color: rgba(32, 30, 30, 1);
 }
-@media (max-width:1279px) {
-  .login_page_form { 
-      border-radius: 24px;
-      padding: 30px 40px;
+@media (max-width: 1279px) {
+  .login_page_form {
+    border-radius: 24px;
+    padding: 30px 40px;
   }
   .formheader img {
     max-width: 130px;
@@ -2066,7 +1919,7 @@ h6 {
     margin-bottom: 4px;
   }
 }
-@media (max-width:1199px) {
+@media (max-width: 1199px) {
   .admin_siderbarr {
     padding: 30px 15px;
   }
@@ -2079,41 +1932,42 @@ h6 {
     padding: 20px 20px;
   }
   .static_data strong {
-      font-size: 30px;
-      line-height: 24px;
+    font-size: 30px;
+    line-height: 24px;
   }
   .staticss_box span {
-      font-size: 15px;
-      margin-bottom: 20px;
+    font-size: 15px;
+    margin-bottom: 20px;
   }
   .staticss_box {
     border-radius: 10px;
     padding: 20px 20px;
   }
 }
-@media (max-width:1023px) {
-  body, html {
-      overflow-y: auto;
+@media (max-width: 1023px) {
+  body,
+  html {
+    overflow-y: auto;
   }
   .admin_contentpart {
-      padding: 30px;
-      overflow: unset;
-      width: 100%;
-      height: auto;
+    padding: 30px;
+    overflow: unset;
+    width: 100%;
+    height: auto;
   }
   .admin_siderbarr {
-      position: fixed;
-      z-index: 999999;
-      height: calc(100vh - 55px);
-      width: 30%;
-      transition: 0.5s all;
-      box-shadow: 0 3.5rem 1rem rgba(0,0,0,.15)!important;
-      left: -100%;
+    position: fixed;
+    z-index: 999999;
+    height: calc(100vh - 55px);
+    width: 30%;
+    transition: 0.5s all;
+    box-shadow: 0 3.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+    left: -100%;
   }
-  .toggle_btns{
+  .toggle_btns {
     display: block;
   }
-  .admin_siderbarr.showw{
+  .admin_siderbarr.showw {
     left: 0;
   }
   .toggle_btns {
@@ -2122,138 +1976,138 @@ h6 {
     font-size: 18px;
     color: #3e4093;
     align-items: center;
-}
+  }
   .userdetails_img {
-      height: 100px;
-      width: 100px;
-      border-radius: 10px;
+    height: 100px;
+    width: 100px;
+    border-radius: 10px;
   }
   .userdetails_main h2 {
-      font-size: 20px;
-      margin-bottom: 12px;
-      line-height: 30px;
+    font-size: 20px;
+    margin-bottom: 12px;
+    line-height: 30px;
   }
   .edit_btn {
-      font-size: 14px;
-      padding: 6px 20px;
-      margin-left: 10px;
-      border-radius: 50px;
-      height: 32px;
+    font-size: 14px;
+    padding: 6px 20px;
+    margin-left: 10px;
+    border-radius: 50px;
+    height: 32px;
   }
   .userdetails_main p {
-      font-size: 15px;
+    font-size: 15px;
   }
-  .form_commanbtn { 
+  .form_commanbtn {
     font-size: 15px;
     padding: 10px 28px;
   }
- 
 }
-@media (max-width:767px) {
-.login_page {
-    padding: 0; 
-}
+@media (max-width: 767px) {
+  .login_page {
+    padding: 0;
+  }
   .login_page_form {
-      border-radius: 4px;
-      padding: 20px 20px;
+    border-radius: 4px;
+    padding: 20px 20px;
   }
   .formheader p {
     font-size: 15px;
   }
   .admin_contentpart {
-      padding: 20px;
-   }
-   .staticss_box {
-      border-radius: 8px;
-      padding: 20px 20px;
-      margin-bottom: 18px;
+    padding: 20px;
   }
-   .headleft h2 {
-      font-size: 17px;
-   }
-   .searchh_box {
-      width: 100%;
-   }
-   .searchh_box .form-control {
-      border: 0;
-      border-radius: 8px;
-      height: 40px;
-      padding: 0 18px;
-   }
-   .table thead th , .table thead td {
-      font-size: 14px;
-      padding: 8px 14px;
+  .staticss_box {
+    border-radius: 8px;
+    padding: 20px 20px;
+    margin-bottom: 18px;
+  }
+  .headleft h2 {
+    font-size: 17px;
+  }
+  .searchh_box {
+    width: 100%;
+  }
+  .searchh_box .form-control {
+    border: 0;
+    border-radius: 8px;
+    height: 40px;
+    padding: 0 18px;
+  }
+  .table thead th,
+  .table thead td {
+    font-size: 14px;
+    padding: 8px 14px;
   }
   .comman_design {
-      border-radius: 8px;
+    border-radius: 8px;
   }
   .staticss_box span {
-      font-size: 16px;
-      margin-bottom: 20px;
+    font-size: 16px;
+    margin-bottom: 20px;
   }
   .static_data strong {
-      font-size: 34px;
-      line-height: 34px;
+    font-size: 34px;
+    line-height: 34px;
   }
   .Table_btn {
-      height: 26px;
-      width: 26px;
-      border-radius: 8px;
-      font-size: 10px;
+    height: 26px;
+    width: 26px;
+    border-radius: 8px;
+    font-size: 10px;
   }
   .admin_siderbarr.showw {
-      width: 80%;
+    width: 80%;
   }
   .back_btn {
-      height: 30px;
-      width: 30px;
-      border-radius: 8px;
-      font-size: 13px;
+    height: 30px;
+    width: 30px;
+    border-radius: 8px;
+    font-size: 13px;
   }
   .filterdropdown button {
-      border-radius: 8px;
-      height: 40px;
-      width: 40px;
-      font-size: 14px;
-      margin-left: 10px;
+    border-radius: 8px;
+    height: 40px;
+    width: 40px;
+    font-size: 14px;
+    margin-left: 10px;
   }
-.userdetails {
+  .userdetails {
     border-radius: 8px;
     padding: 20px 6px;
     position: relative;
-}
+  }
   .form_commanbtn {
-      font-size: 15px;
-      padding: 8px 18px;
-      border-radius: 8px;
+    font-size: 15px;
+    padding: 8px 18px;
+    border-radius: 8px;
   }
   .userdetails_img {
-      height: 90px;
-      width: 90px;
-      border-radius: 8px;
-      margin: 0 auto 20px;
+    height: 90px;
+    width: 90px;
+    border-radius: 8px;
+    margin: 0 auto 20px;
   }
   .userdetails_main {
     text-align: center;
   }
   .userdetails_main h2 {
-      font-size: 17px;
-      margin-bottom: 10px;
-      line-height: 28px;
-      display: block;
+    font-size: 17px;
+    margin-bottom: 10px;
+    line-height: 28px;
+    display: block;
   }
   .edit_btn {
-      font-size: 12px;
-      padding: 2px 8px;
-      margin-left: 0;
-      border-radius: 4px;
-      height: 25px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: absolute;
-      top: 8px;
-      right: 8px;
+    font-size: 12px;
+    padding: 2px 8px;
+    margin-left: 0;
+    border-radius: 4px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 8px;
+    right: 8px;
   }
   .admin_siderbarr a {
     padding: 0 14px;
@@ -2262,6 +2116,44 @@ h6 {
     align-items: center;
     height: 42px;
     line-height: 42px;
-}
+  }
 }
 
+.form-error {
+  font: 550 11px/150% Poppins, sans-serif;
+  color: #d60808;
+}
+.qr_imgs {
+}
+
+.loader {
+ 
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  display: inline-block;
+  border-top: 4px solid #3e4093;
+  border-right: 4px solid transparent;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+.loader::after {
+  content: '';  
+  box-sizing: border-box;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  border-bottom: 4px solid #FF3D00;
+  border-left: 4px solid transparent;
+}
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+} 

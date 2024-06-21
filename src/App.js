@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import VisitorLogin from "./DeskApp/LoginComp/VisitorLogin";
+import VisitorDash from "./DeskApp/VisitorMain/Dashboard/VisitorDash";
+import VisitorManage from "./DeskApp/VisitorMain/Dashboard/VisitorManage";
+import VisitorLogs from "./DeskApp/VisitorMain/Dashboard/VisitorsLogs ";
+import CreateVisitor from "./DeskApp/VisitorMain/CreateVisitor";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <ToastContainer />
+
+      <Routes>
+        <Route path="/" element={<VisitorLogin />} />
+        <Route path="/visitor/login" element={<VisitorLogin />} />
+        <Route path="/visitor/dashboard" element={<VisitorDash />} />
+        <Route path="/visitor/management" element={<VisitorManage />} />
+        <Route path="/visitor/CheckedInOut" element={<VisitorLogs />} />
+        <Route path="/visitor/create-visitor" element={<CreateVisitor />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
 export default App;
+
