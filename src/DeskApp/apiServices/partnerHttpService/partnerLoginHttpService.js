@@ -103,6 +103,19 @@ export async function getAgents(formData) {
   }
 }
 
+export async function viewAgent(id) {
+  try {
+    const { data,error } = await adminhttpService.get(
+      `${process.env.REACT_APP_APIENDPOINT}api/visitor/viewAgent/${id}`
+    );
+    console.log(data);
+
+    return { data,error };
+  } catch (error) {
+    if (error.response) toast.error(error.response.data.message);
+    return { error };
+  }
+}
 export async function createNewVisitor(formData) {
   try {
     const { data } = await adminhttpService.post(

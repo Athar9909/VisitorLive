@@ -6,6 +6,7 @@ import VisitorDash from "./DeskApp/VisitorMain/Dashboard/VisitorDash";
 import VisitorManage from "./DeskApp/VisitorMain/Dashboard/VisitorManage";
 import VisitorLogs from "./DeskApp/VisitorMain/Dashboard/VisitorsLogs ";
 import CreateVisitor from "./DeskApp/VisitorMain/CreateVisitor";
+import GeneratedQr from "./DeskApp/VisitorMain/GeneratedQr";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/visitor/management" element={<VisitorManage />} />
         <Route path="/visitor/CheckedInOut" element={<VisitorLogs />} />
         <Route path="/visitor/create-visitor" element={<CreateVisitor />} />
+        <Route path="/visitor/viewQr/:id" element={<GeneratedQr />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,37 +1,29 @@
 import React, { useEffect, useState } from "react";
 import html2canvas from "html2canvas";
-import { useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import axios from "axios";
+import { viewAgent } from "../apiServices/partnerHttpService/partnerLoginHttpService";
 
 const GeneratedQr = () => {
-  const api = `${process.env.REACT_APP_APIENDPOINTNEW}api/admin/generateQRCode/`;
-  const apiUrl = `${process.env.REACT_APP_APIENDPOINTNEW}api/admin/getUser`;
-
   let { id } = useParams();
   const [user, setUser] = useState([]);
-  let location = useLocation();
-  const queryParams = new URLSearchParams(location.search);
-  axios.defaults.headers.common["x-auth-token-admin"] =
-    localStorage.getItem("AdminLogToken");
-  let profileImage = queryParams?.get("profileImage");
-  
+
+  console.log(id);
   const getUser = async () => {
-    const res = await axios.post(apiUrl + "/" + id);
-    if (!res.data.error) {
-      setUser(res.data.results);
+    const { data, error } = await viewAgent(id);
+    if (!error) {
+      if (!data.error) {
+        setUser(data.results.agent);
+        document.getElementById("qrImage").src = data?.results?.agent?.qrcode;
+      }
     }
   };
+
   useEffect(() => {
     getUser();
-    GetQrCode();
   }, []);
 
-  const GetQrCode = async () => {
-    await axios.patch(api + id).then((res) => {
-      let data = res?.data?.results.path;
-      document.getElementById("qrImage").src = data;
-    });
-  };
+  let profileImage = "";
 
   const waitForImagesToLoad = (element) => {
     const imgElements = element.getElementsByTagName("img");
@@ -137,35 +129,38 @@ const GeneratedQr = () => {
 
   return (
     <div
-      className=""
+      className="mt-0"
       style={{
-        padding: "80px",
-        height: "100%",
+        padding: "20px 20px",
+        height: "100vh",
         display: "flex",
         justifyContent: "center",
+        overflow:"scroll"
       }}
     >
       <div>
-        <button
-          className="comman_btn mb-2 print_btn"
-          onClick={() => captureDiv()}
-        >
-          Download
-        </button>
-        <button
-          className="comman_btn mb-2 mx-2 print_btn"
-          onClick={() => printDoc()}
-        >
-          Print
-        </button>
+        <div className="d-flex">
+          <button
+            className="comman_btn mb-2 print_btn w-50"
+            onClick={() => captureDiv()}
+          >
+            Download
+          </button>
+          <button
+            className="comman_btn mb-2 mx-2 print_btn w-50"
+            onClick={() => printDoc()}
+          >
+            Print
+          </button>
+        </div>
+
         <div
           style={{
             borderRadius: "20px",
-           
             width: "500px",
             border: "1px solid #3e4093",
           }}
-          className=" h-100 px-5 py-1 bg-white"
+          className=" h-100 px-2 py-1 bg-white"
           id="qrDiv"
         >
           <div className="text-center mt-4">
@@ -175,7 +170,7 @@ const GeneratedQr = () => {
                 onClick={() =>
                   (window.location.href = "https://www.starimporters.com/")
                 }
-                src={require("../../../assets/img/logo.png")}
+                src="/imgs/logo.png"
                 alt="Company Logo"
                 style={{
                   width: "clamp(80px, 50%, 200px)",
@@ -239,7 +234,7 @@ const GeneratedQr = () => {
                   onClick={() =>
                     (window.location.href = "https://www.starimporters.com/")
                   }
-                  src={require("../../../assets/img/logo.png")}
+                  src={user?.qrCode}
                   alt="Qr"
                   id="qrImage"
                   width={140}

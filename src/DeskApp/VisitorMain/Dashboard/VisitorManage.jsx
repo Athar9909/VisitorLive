@@ -90,7 +90,9 @@ function VisitorManage() {
                             <td>
                               <div className="d-flex justify-content-center">
                                 <a
-                                  href="dashboard-checked-in.html"
+                                  onClick={() =>
+                                    navigate(`/visitor/viewQr/${itm?._id}`)
+                                  }
                                   className="Table_btn"
                                 >
                                   <i className="fa fa-qrcode" />
