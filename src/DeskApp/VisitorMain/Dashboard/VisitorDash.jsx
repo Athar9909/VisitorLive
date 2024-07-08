@@ -118,7 +118,7 @@ function VisitorDash() {
   };
 
   const getVisitorsData = async () => {
-    const { data, error } = await getVisitorsLog({ page: 1 });
+    const { data, error } = await getVisitorsLog();
     console.log(data);
     if (!error) {
       if (data) {
@@ -163,7 +163,7 @@ function VisitorDash() {
               <div className="row d-flex justify-content-between">
                 <div className="col-md-6 mb-4">
                   <a href="javascript:;" className="staticss_box staticss_box1">
-                    <span>Total Checked In</span>
+                    <span>Today Checked In</span>
                     <div className="static_data">
                       <strong>{logCounts?.checkedIn[0]?.count}</strong>
                     </div>
@@ -363,7 +363,7 @@ function VisitorDash() {
                 <div className="col-12">
                   <div className="qr_imgs  ">
                     {/* <img src="assets/img/letter.png" alt="" /> */}
-                    {isScanned ? (
+                    {isScanned? (
                       <div className="d-flex justify-content-center">
                         <div
                           style={{

@@ -1,10 +1,9 @@
 import React, { Suspense, useEffect, useState } from "react";
 import DeskSidebar from "../../Common/DeskSidebar";
 import { DeskHead } from "../../Common/DeskHead";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   getAgents,
-  getVisitorsLog,
 } from "../../apiServices/partnerHttpService/partnerLoginHttpService";
 
 function VisitorManage() {
@@ -53,7 +52,7 @@ function VisitorManage() {
                   <div className="searchh_box position-relative">
                     <input
                       className="form-control"
-                      type="search"
+                      type="text"
                       placeholder="Search"
                     />
                     <button>
@@ -89,14 +88,16 @@ function VisitorManage() {
 
                             <td>
                               <div className="d-flex justify-content-center">
-                                <a
-                                  onClick={() =>
-                                    navigate(`/visitor/viewQr/${itm?._id}`)
-                                  }
+                                <Link
+                                to={`/visitor/viewQr/${itm?._id}`}
+                                  // onClick={() =>
+                                  //   navigate(`/visitor/viewQr/${itm?._id}`)
+                                  // }
                                   className="Table_btn"
+                                  target="_blank"
                                 >
                                   <i className="fa fa-qrcode" />
-                                </a>
+                                </Link>
                               </div>
                             </td>
                           </tr>

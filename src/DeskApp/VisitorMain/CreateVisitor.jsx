@@ -7,7 +7,7 @@ import { createNewVisitor } from "../apiServices/partnerHttpService/partnerLogin
 
 const CreateVisitor = () => {
   const navigate = useNavigate();
-  const { register, handleSubmit, reset } = useForm();
+  const { register, handleSubmit } = useForm();
 
   const onSubmit = async (info) => {
     try {
@@ -70,7 +70,7 @@ const CreateVisitor = () => {
                     </div>
 
                     <div className="form-group col-md-4">
-                      <label htmlFor="">Visitor Name</label>
+                      <label htmlFor="">Fisrt Name</label>
                       <input
                         type="text"
                         className="form-control"

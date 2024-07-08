@@ -135,7 +135,7 @@ const GeneratedQr = () => {
         height: "100vh",
         display: "flex",
         justifyContent: "center",
-        overflow:"scroll"
+        overflow: "scroll",
       }}
     >
       <div>
@@ -184,21 +184,19 @@ const GeneratedQr = () => {
           <div className=" py-1 px-3 mt-4" style={{ borderRadius: "20px" }}>
             <div className="row mt-3">
               <div className="col-6 mb-3">
-                {profileImage?.length > 0 && (
                   <img
                     className=""
                     id="proImage"
-                    src={profileImage}
+                    src={"/imgs/profileDummy.png"}
                     style={{
                       width: "clamp(60px, 50%, 120px)",
                       borderRadius: "12px",
-                      maxWidth: "100px",
-                      maxHeight: "100px",
+                      maxWidth: "80px",
+                      maxHeight: "80px",
                       borderRadius: "80px",
                     }}
                   />
-                )}
-                <h1 className="fs-6 mt-1">{user?.firstName}</h1>
+                {/* <h1 className="fs-6 mt-1">{user?.firstName}</h1> */}
               </div>
               <div className="col-6 text-end mb-3 align-end">
                 <label className="text-danger fw-bold">Status</label>
@@ -241,7 +239,7 @@ const GeneratedQr = () => {
                 />
               </div>
               <div className="col-12 text-center">
-                <a href="https://www.starimporters.com">
+                <a target="_blank" href="https://www.starimporters.com">
                   www.starimporters.com
                 </a>
               </div>

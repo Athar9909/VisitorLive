@@ -35,9 +35,14 @@ const VisitorLogin = () => {
     if (!data?.error) {
       localStorage.setItem("visitorLoginData", data?.result);
       navigate("/visitor/dashboard");
-
     }
   };
+
+  useEffect(() => {
+    setTimeout(() => {
+      setType("password");
+    }, [1200]);
+  }, [type]);
 
   const typeChange = () => {
     if (type === "password") setType("text");
