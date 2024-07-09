@@ -184,18 +184,18 @@ const GeneratedQr = () => {
           <div className=" py-1 px-3 mt-4" style={{ borderRadius: "20px" }}>
             <div className="row mt-3">
               <div className="col-6 mb-3">
-                  <img
-                    className=""
-                    id="proImage"
-                    src={"/imgs/profileDummy.png"}
-                    style={{
-                      width: "clamp(60px, 50%, 120px)",
-                      borderRadius: "12px",
-                      maxWidth: "80px",
-                      maxHeight: "80px",
-                      borderRadius: "80px",
-                    }}
-                  />
+                <img
+                  className=""
+                  id="proImage"
+                  src={"/imgs/profileDummy.png"}
+                  style={{
+                    width: "clamp(60px, 50%, 120px)",
+                    borderRadius: "12px",
+                    maxWidth: "80px",
+                    maxHeight: "80px",
+                    borderRadius: "80px",
+                  }}
+                />
                 {/* <h1 className="fs-6 mt-1">{user?.firstName}</h1> */}
               </div>
               <div className="col-6 text-end mb-3 align-end">
@@ -239,7 +239,12 @@ const GeneratedQr = () => {
                 />
               </div>
               <div className="col-12 text-center">
-                <a target="_blank" href="https://www.starimporters.com">
+                <a
+                  onClick={(e) => {
+                    e.preventDefault();
+                    window.open("https://www.starimporters.com", "_blank");
+                  }}
+                >
                   www.starimporters.com
                 </a>
               </div>
