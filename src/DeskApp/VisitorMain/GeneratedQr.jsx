@@ -248,7 +248,7 @@ const GeneratedQr = () => {
                   www.starimporters.com
                 </a>
               </div>
-            </div>
+            </div>  
           </div>
         </div>
       </div>
