@@ -504,14 +504,14 @@ function VisitorDash() {
                           onClick={() => CheckedOut()}
                           className="comman_btn w-50"
                         >
-                          Checked Out
+                          Check Out
                         </button>
                       ) : (
                         <button
                           onClick={() => CheckedIn()}
                           className="comman_btn w-50"
                         >
-                          Checked In
+                          Check In
                         </button>
                       )}
                     </div>
