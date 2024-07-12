@@ -13,7 +13,6 @@ function VisitorDash() {
   const [isScanned, setIsScanned] = useState(false);
   const [user, setUser] = useState([]);
   const [checkedIns, setCheckedIns] = useState([]);
-  const [checkedOuts, setCheckedOuts] = useState([]);
   const [barcode, setBarcode] = useState("");
   const inputRef = useRef(null);
   const [focus, setFocus] = useState(false);
@@ -42,7 +41,7 @@ function VisitorDash() {
   }, [focus]);
 
   useEffect(() => {
-    if (barcode?.length === 85) {
+    if (barcode?.length === 67) {
       scanQr();
     }
   }, [barcode]);
@@ -402,8 +401,8 @@ function VisitorDash() {
                                   className=""
                                   id="proImage"
                                   src={
-                                    user?.agent?.image?.length > 5
-                                      ? user?.agent?.image
+                                    user?.image?.length > 5
+                                      ? user?.image
                                       : "/imgs/profileDummy.png"
                                   }
                                   style={{
@@ -441,7 +440,7 @@ function VisitorDash() {
                                   ACCOUNT NUMBER
                                 </label>
                                 <h1 className="comman_heads">
-                                  {user?.user?.account ?? "Not Added"}
+                                  {user?.user?.accountNumber ?? "Not Added"}
                                 </h1>
                               </div>
 

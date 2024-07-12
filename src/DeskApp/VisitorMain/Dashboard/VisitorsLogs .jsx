@@ -63,9 +63,9 @@ function VisitorLogs() {
                           <th>S.No.</th>
                           <th>Visitor Name</th>
                           <th>Check-In Time</th>
+                          <th>Check-Out Time</th>
                           <th>Company Name</th>
                           <th>Phone Number</th>
-                          <th>Action</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -76,19 +76,17 @@ function VisitorLogs() {
                             <td>
                               {itm?.entryDate?.slice(0, 10)} {itm?.entryTime}
                             </td>
+                            {!itm?.checkedOut ? (
+                              <td>Not Checked Out Yet</td>
+                            ) : (
+                              <td>
+                                {itm?.exitDate?.slice(0, 10)} {itm?.exitTime}
+                              </td>
+                            )}
+
                             <td>{itm?.user?.companyName}</td>
 
                             <td>{itm?.user?.phoneNumber}</td>
-                            <td>
-                              <div className="d-flex justify-content-center">
-                                <a
-                                  href="dashboard-checked-in.html"
-                                  className="Table_btn"
-                                >
-                                  <i className="fa fa-eye" />
-                                </a>
-                              </div>
-                            </td>
                           </tr>
                         ))}
                       </tbody>
