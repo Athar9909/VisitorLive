@@ -147,9 +147,9 @@ const VisitorCard = () => {
             </div>
           </div>
         </div>
-        {/* <div>
-          Check-In Time : 
-        </div> */}
+        <div>
+          Verified agent
+        </div>
       </div>
     </div>
   );
