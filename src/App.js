@@ -8,6 +8,7 @@ import VisitorLogs from "./DeskApp/VisitorMain/Dashboard/VisitorsLogs ";
 import CreateVisitor from "./DeskApp/VisitorMain/CreateVisitor";
 import GeneratedQr from "./DeskApp/VisitorMain/GeneratedQr";
 import ActivateMem from "./DeskApp/ActivateMem";
+import VisitorCard from "./DeskApp/VisitorCard";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/visitor/create-visitor" element={<CreateVisitor />} />
         <Route path="/visitor/viewQr/:id" element={<GeneratedQr />} />
         <Route path="/visitor/activate-membership" element={<ActivateMem />} />
+        <Route path="/visitor/:id" element={<VisitorCard />} />
       </Routes>
     </BrowserRouter>
   );
