@@ -11,7 +11,7 @@ export const DeskHead = () => {
       <div className="admin_header">
         <div className="row justify-content-between align-items-center">
           <div className="col-2 text-center">
-            <a className="logo" href="dashboard.html">
+            <a className="logo">
               <img src="/imgs/logo.png" alt="" />
             </a>
           </div>

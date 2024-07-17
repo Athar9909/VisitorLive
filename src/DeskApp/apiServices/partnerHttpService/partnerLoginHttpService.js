@@ -134,6 +134,23 @@ export async function createNewVisitor(formData) {
   }
 }
 
+export async function activateMembership(formData) {
+  try {
+    const { data } = await adminhttpService.post(
+      `${process.env.REACT_APP_APIENDPOINT}api/visitor/agentAccountActivation`,
+      formData
+    );
+    console.log(data);
+    if (!data.error) {
+      toast.success("Submitted successfully!");
+    } else toast.error(data.message, { autoClose: 1500 });
+
+    return { data };
+  } catch (error) {
+    if (error.response) toast.error(error.response.data.message);
+    return { error };
+  }
+}
 export async function editStaff(formData) {
   try {
     const { data } = await adminhttpService.put(

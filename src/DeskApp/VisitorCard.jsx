@@ -26,6 +26,7 @@ const VisitorCard = () => {
 
   return (
     <div className="row justify-content-center">
+
       <div className="col-5">
         <div className="row comman_design mx-0">
           <div className="col-12">
@@ -151,6 +152,7 @@ const VisitorCard = () => {
           Verified agent
         </div>
       </div>
+      
     </div>
   );
 };
