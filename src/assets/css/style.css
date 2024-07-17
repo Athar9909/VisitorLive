@@ -2460,12 +2460,6 @@ h6 {
   top: 18vh;
 }
 
-.context h1 {
-  text-align: center;
-  color: #fff;
-  font-size: 50px;
-}
-
 .area {
   background: #4e54c8;
   background: -webkit-linear-gradient(to left, #8f94fb, #4e54c8);
@@ -2620,7 +2614,7 @@ h6 {
   width: 3rem;
   height: 3rem;
   border-radius: 9999px;
-  animation: animate .6s linear alternate-reverse infinite;
+  animation: animateIcons .6s linear alternate-reverse infinite;
   transition: .6s ease;
 }
 
@@ -2649,7 +2643,7 @@ h6 {
   line-height: 1.25rem;
 }
 
-@keyframes animate {
+@keyframes animateIcons {
   from {
     transform: scale(1);
   }
