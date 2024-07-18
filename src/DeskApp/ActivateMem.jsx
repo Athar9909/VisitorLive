@@ -26,10 +26,10 @@ const ActivateMem = () => {
       const { data } = await activateMembership(alldata);
       if (!data.error) {
         setCompleted(true);
-        window.close();
 
         setTimeout(() => {
-        }, [2000]);
+          window.close();
+        }, [8000]);
       }
     } catch (error) {
       console.error("An error occurred:", error);
@@ -307,7 +307,7 @@ const ActivateMem = () => {
             </div>
           </div>
         )}
-      </div>  
+      </div>
       <div class="area">
         <ul class="circles">
           <li></li>
