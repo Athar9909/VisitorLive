@@ -2,9 +2,7 @@ import React, { Suspense, useEffect, useState } from "react";
 import DeskSidebar from "../../Common/DeskSidebar";
 import { DeskHead } from "../../Common/DeskHead";
 import { Link, useNavigate } from "react-router-dom";
-import {
-  getAgents,
-} from "../../apiServices/partnerHttpService/partnerLoginHttpService";
+import { getAgents } from "../../apiServices/partnerHttpService/partnerLoginHttpService";
 
 function VisitorManage() {
   const [visitors, setVisitors] = useState([]);
@@ -14,7 +12,7 @@ function VisitorManage() {
     getVisitorsData();
   }, []);
 
-  const getVisitorsData = async () => {
+  const getVisitorsData = async (key) => {
     const { data, error } = await getAgents();
     console.log(data);
     if (!error) {
@@ -54,6 +52,7 @@ function VisitorManage() {
                       className="form-control"
                       type="text"
                       placeholder="Search"
+                      onChange={() => getVisitorsData()}
                     />
                     <button>
                       <i className="fas fa-search" />
@@ -89,7 +88,7 @@ function VisitorManage() {
                             <td>
                               <div className="d-flex justify-content-center">
                                 <Link
-                                to={`/visitor/viewQr/${itm?._id}`}
+                                  to={`/visitor/viewQr/${itm?._id}`}
                                   // onClick={() =>
                                   //   navigate(`/visitor/viewQr/${itm?._id}`)
                                   // }

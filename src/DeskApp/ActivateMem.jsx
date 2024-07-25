@@ -40,14 +40,14 @@ const ActivateMem = () => {
   return (
     <div>
       <div className="row justify-content-center context">
-        <div className="logo_activate">
-          <a className="logo">
-            <img src="/imgs/logo.png" alt="" />
-          </a>
-        </div>
         {!completed ? (
           <form onSubmit={handleSubmit(onSubmit)} className="form">
-            <p className="title">Activate Authorised Membership Card </p>
+            <div className="logo_activate">
+              <a className="logo">
+                <img src="/imgs/logo.png" alt="" />
+              </a>
+            </div>
+            <p className="title">Activate Authorized Membership Card </p>
             <p className="message">
               Fill this form now and we will contact you shortly!.{" "}
             </p>
@@ -187,7 +187,7 @@ const ActivateMem = () => {
                     })}
                   />
 
-                  <span>Copmany Name</span>
+                  <span>Company Name</span>
                   {errors.company && (
                     <small className="errorText mx-1 fw-bold">
                       {errors.company?.message}
@@ -251,8 +251,7 @@ const ActivateMem = () => {
 
             <button className="submit">Submit</button>
             <p className="signin">
-              Your Information is Securely Encrypted with Star Importers &
-              Wholesalers.For more Visit{" "}
+              For More Visit{" "}
               <Link
                 to={"https://www.starimporters.com/app/home"}
                 target="_blank"

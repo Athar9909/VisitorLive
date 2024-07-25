@@ -6,6 +6,7 @@ import {
   scanQrEntry,
   scanQrExit,
   scanQrView,
+  viewAgent,
 } from "../../apiServices/partnerHttpService/partnerLoginHttpService";
 import socket from "../../Common/socket";
 
@@ -18,6 +19,7 @@ function VisitorDash() {
   const [focus, setFocus] = useState(false);
   const [checkList, setCheckList] = useState("CheckIn");
   const [logCounts, setLogCounts] = useState();
+  const [htmlContent, setHtmlContent] = useState();
   // useEffect(() => {
   //   if (inputRef.current) {
   //     inputRef.current.focus();
@@ -68,13 +70,16 @@ function VisitorDash() {
   }, []);
 
   const scanQr = async () => {
-    const { data, error } = await scanQrView(barcode);
+    console.log(barcode?.slice(43));
+    const { data, error } = await viewAgent(barcode?.slice(43));
     console.log(data);
     if (!error) {
       if (data) {
+        console.log(data);
         setIsScanned(!isScanned);
         setUser(data?.results?.agent);
         setFocus(false);
+        setHtmlContent(data);
       } else {
         console.log("Data is undefined.");
       }
@@ -362,7 +367,7 @@ function VisitorDash() {
                 <div className="col-12">
                   <div className="qr_imgs  ">
                     {/* <img src="assets/img/letter.png" alt="" /> */}
-                    {isScanned? (
+                    {isScanned ? (
                       <div className="d-flex justify-content-center">
                         <div
                           style={{
@@ -396,7 +401,7 @@ function VisitorDash() {
                             style={{ borderRadius: "20px" }}
                           >
                             <div className="row mt-3">
-                              <div className="col-6 mb-3">
+                              <div className="col-7 mb-3">
                                 <img
                                   className=""
                                   id="proImage"
@@ -406,7 +411,7 @@ function VisitorDash() {
                                       : "/imgs/profileDummy.png"
                                   }
                                   style={{
-                                    width: "clamp(60px, 50%, 120px)",
+                                    width: "clamp(60px, 40%, 120px)",
                                     borderRadius: "12px",
                                     maxWidth: "100px",
                                     maxHeight: "100px",
@@ -417,12 +422,25 @@ function VisitorDash() {
                                   {user?.firstName}
                                 </h1>
                               </div>
-                              <div className="col-6 text-end mb-3 align-end">
+                            
+
+                              <div className="col-6 text-start mb-3">
                                 <label className="text-danger fw-bold">
-                                  Status
+                                  STATUS
                                 </label>
                                 <h1 className="comman_heads">
                                   {user?.status ? "Active" : "In-active"}
+                                </h1>
+                              </div>
+
+                              <div className="col-6 text-end mb-3">
+                                <label className="text-danger fw-bold">
+                                  ACCOUNT TYPE
+                                </label>
+                                <h1 className="comman_heads">
+                                {user?.subUser
+                                    ? "Sub-account"
+                                    : "Main Account"}
                                 </h1>
                               </div>
 
@@ -431,7 +449,9 @@ function VisitorDash() {
                                   COMPANY NAME
                                 </label>
                                 <h1 className="comman_heads">
-                                  {user?.user?.companyName}
+                                  {user?.subUser
+                                    ? user?.subUser?.companyName
+                                    : user?.user?.companyName}
                                 </h1>
                               </div>
 
@@ -440,7 +460,9 @@ function VisitorDash() {
                                   ACCOUNT NUMBER
                                 </label>
                                 <h1 className="comman_heads">
-                                  {user?.user?.accountNumber ?? "Not Added"}
+                                  {user?.subUser
+                                    ? user?.subUser?.accountNumber
+                                    : user?.user?.accountNumber ?? "Not Added"}
                                 </h1>
                               </div>
 
