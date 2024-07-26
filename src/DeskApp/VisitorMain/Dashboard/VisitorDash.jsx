@@ -445,7 +445,7 @@ function VisitorDash() {
                               </div>
 
                               <div className="col-6 text-start mb-3">
-                                <label className="text-danger fw-bold">
+                                <label className="text-danger fw-bold hhsd">
                                   COMPANY NAME
                                 </label>
                                 <h1 className="comman_heads">
