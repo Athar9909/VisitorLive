@@ -70,7 +70,7 @@ const CreateVisitor = () => {
                     </div>
 
                     <div className="form-group col-md-4">
-                      <label htmlFor="">Fisrt Name</label>
+                      <label htmlFor="">Visitor Name</label>
                       <input
                         type="text"
                         className="form-control"

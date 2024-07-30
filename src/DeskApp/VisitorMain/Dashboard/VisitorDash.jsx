@@ -9,6 +9,8 @@ import {
   viewAgent,
 } from "../../apiServices/partnerHttpService/partnerLoginHttpService";
 import socket from "../../Common/socket";
+import ResponsivePagination from "react-responsive-pagination";
+import "react-responsive-pagination/themes/minimal.css";
 
 function VisitorDash() {
   const [isScanned, setIsScanned] = useState(false);
@@ -20,11 +22,10 @@ function VisitorDash() {
   const [checkList, setCheckList] = useState("CheckIn");
   const [logCounts, setLogCounts] = useState();
   const [htmlContent, setHtmlContent] = useState();
-  // useEffect(() => {
-  //   if (inputRef.current) {
-  //     inputRef.current.focus();
-  //   }
-  // }, []);
+  const [currentPage1, setCurrentPage1] = useState(1);
+  const [currentPage2, setCurrentPage2] = useState(1);
+  const [totalPages1, setTotalPages1] = useState(1);
+  const [totalPages2, setTotalPages2] = useState(1);
 
   useEffect(() => {
     if (!focus) {
@@ -43,35 +44,14 @@ function VisitorDash() {
   }, [focus]);
 
   useEffect(() => {
-    if (barcode?.length === 67) {
+    if (barcode?.length === 62) {
       scanQr();
     }
   }, [barcode]);
 
-  useEffect(() => {
-    if (!socket.connected) {
-      socket.on("connect", (data) => {
-        console.log("socket_id", socket.id, data);
-      });
-    }
-
-    // socket.emit("partners", {
-    //   partnerId: partnerId,
-    //   search: "",
-    // });
-
-    socket.on("partnerChatList", (data) => {
-      console.log(data);
-    });
-
-    // return () => {
-    //   newSocket.disconnect();
-    // };
-  }, []);
-
   const scanQr = async () => {
-    console.log(barcode?.slice(43));
-    const { data, error } = await viewAgent(barcode?.slice(43));
+    console.log(barcode);
+    const { data, error } = await viewAgent(barcode?.slice(38));
     console.log(data);
     if (!error) {
       if (data) {
@@ -121,22 +101,34 @@ function VisitorDash() {
     setBarcode("");
   };
 
-  const getVisitorsData = async () => {
-    const { data, error } = await getVisitorsLog();
+  const getVisitorsData = async (page) => {
+    const { data, error } = await getVisitorsLog({
+      page: page,
+    });
     console.log(data);
     if (!error) {
       if (data) {
         setCheckedIns(data?.results?.visitors?.usersList);
         setLogCounts(data?.results?.logCount);
+        setTotalPages1(data?.results?.totalPages);
+        setTotalPages2(data?.results?.totalPages);
       } else {
         console.log("Data is undefined.");
       }
     }
   };
-
   const handleInput = async (e) => {
     const value = e.target.value;
     await setBarcode(value);
+  };
+
+  const handlePages1 = async (value) => {
+    setCurrentPage1(value)
+    getVisitorsData(value);
+  };
+  const handlePages2 = async (value) => {
+    setCurrentPage2(value)
+    getVisitorsData(value);
   };
 
   console.log(barcode?.length);
@@ -288,6 +280,13 @@ function VisitorDash() {
                                           ))}
                                         </tbody>
                                       </table>
+                                      <div className="mb-2">
+                                        <ResponsivePagination
+                                          current={currentPage1}
+                                          total={totalPages1}
+                                          onPageChange={handlePages1}
+                                        />
+                                      </div>
                                     </div>
                                   </div>
                                 </div>
@@ -350,6 +349,13 @@ function VisitorDash() {
                                           ))}
                                       </tbody>
                                     </table>
+                                    <div className="mb-2">
+                                        <ResponsivePagination
+                                          current={currentPage2}
+                                          total={totalPages2}
+                                          onPageChange={handlePages2}
+                                        />
+                                      </div>
                                   </div>
                                 </div>
                               </div>
@@ -422,7 +428,6 @@ function VisitorDash() {
                                   {user?.firstName}
                                 </h1>
                               </div>
-                            
 
                               <div className="col-6 text-start mb-3">
                                 <label className="text-danger fw-bold">
@@ -438,7 +443,7 @@ function VisitorDash() {
                                   ACCOUNT TYPE
                                 </label>
                                 <h1 className="comman_heads">
-                                {user?.subUser
+                                  {user?.subUser
                                     ? "Sub-account"
                                     : "Main Account"}
                                 </h1>

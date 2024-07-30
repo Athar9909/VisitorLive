@@ -159,6 +159,7 @@ const GeneratedQr = () => {
             borderRadius: "20px",
             width: "500px",
             border: "1px solid #3e4093",
+            maxHeight: "80vh",
           }}
           className=" h-100 px-2 py-1 bg-white"
           id="qrDiv"
@@ -211,8 +212,8 @@ const GeneratedQr = () => {
               </div>
 
               <div className="col-6 text-end mb-3">
-                <label className="text-danger fw-bold">ACCOUNT NUMBER</label>
-                <h1 className="fs-6">{user?.accountNumber}</h1>
+                <label className="text-danger fw-bold">ACCOUNT TYPE</label>
+                <h1 className="fs-6">Created By Visitor</h1>
               </div>
 
               <div className="col-6 text-start mb-3">
@@ -248,7 +249,7 @@ const GeneratedQr = () => {
                   www.starimporters.com
                 </a>
               </div>
-            </div>  
+            </div>
           </div>
         </div>
       </div>
