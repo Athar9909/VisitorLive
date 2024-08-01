@@ -52,58 +52,59 @@ const GeneratedQr = () => {
   };
 
   const printDoc = async () => {
-    const divToCapture = document.getElementById("qrDiv");
-    try {
-      await waitForImagesToLoad(divToCapture); // Wait for all images to load
-      console.log("All images loaded");
+    window.print();
+    // const divToCapture = document.getElementById("qrDiv");
+    // try {
+    //   await waitForImagesToLoad(divToCapture); // Wait for all images to load
+    //   console.log("All images loaded");
 
-      await html2canvas(divToCapture, { useCORS: true })
-        .then((canvas) => {
-          canvas.toBlob((blob) => {
-            const url = URL.createObjectURL(blob);
+    //   await html2canvas(divToCapture, { useCORS: true })
+    //     .then((canvas) => {
+    //       canvas.toBlob((blob) => {
+    //         const url = URL.createObjectURL(blob);
 
-            // Print the image on the same screen
-            const printContainer = document.createElement("div");
-            printContainer.style.position = "fixed";
-            printContainer.style.top = "0";
-            printContainer.style.left = "0";
-            printContainer.style.width = "100%";
-            printContainer.style.height = "100%";
-            printContainer.style.background = "white";
-            printContainer.style.zIndex = "10000"; // Make sure it's on top
-            printContainer.style.display = "flex";
-            printContainer.style.alignItems = "center";
-            printContainer.style.justifyContent = "center";
+    //         // Print the image on the same screen
+    //         const printContainer = document.createElement("div");
+    //         printContainer.style.position = "fixed";
+    //         printContainer.style.top = "0";
+    //         printContainer.style.left = "0";
+    //         printContainer.style.width = "100%";
+    //         printContainer.style.height = "100%";
+    //         printContainer.style.background = "white";
+    //         printContainer.style.zIndex = "10000"; // Make sure it's on top
+    //         printContainer.style.display = "flex";
+    //         printContainer.style.alignItems = "center";
+    //         printContainer.style.justifyContent = "center";
 
-            const img = document.createElement("img");
-            img.src = url;
-            img.style.maxWidth = "100%";
-            img.style.maxHeight = "100%";
+    //         const img = document.createElement("img");
+    //         img.src = url;
+    //         img.style.maxWidth = "100%";
+    //         img.style.maxHeight = "100%";
 
-            // Append the image and print container to the body
-            printContainer.appendChild(img);
-            document.body.appendChild(printContainer);
+    //         // Append the image and print container to the body
+    //         printContainer.appendChild(img);
+    //         document.body.appendChild(printContainer);
 
-            // Wait until the image is fully loaded
-            img.onload = () => {
-              setTimeout(() => {
-                window.print();
-                printContainer.remove(); // Clean up after printing
-                URL.revokeObjectURL(url); // Release the object URL
-              }, 1000); // Wait for 1000ms to ensure the image is rendered
-            };
+    //         // Wait until the image is fully loaded
+    //         img.onload = () => {
+    //           setTimeout(() => {
+    //             window.print();
+    //             printContainer.remove(); // Clean up after printing
+    //             URL.revokeObjectURL(url); // Release the object URL
+    //           }, 1000); // Wait for 1000ms to ensure the image is rendered
+    //         };
 
-            img.onerror = (error) => {
-              console.error("Error loading captured image for print:", error);
-            };
-          });
-        })
-        .catch((error) => {
-          console.error("Error capturing div:", error);
-        });
-    } catch (error) {
-      console.error("Error waiting for images to load:", error);
-    }
+    //         img.onerror = (error) => {
+    //           console.error("Error loading captured image for print:", error);
+    //         };
+    //       });
+    //     })
+    //     .catch((error) => {
+    //       console.error("Error capturing div:", error);
+    //     });
+    // } catch (error) {
+    //   console.error("Error waiting for images to load:", error);
+    // }
   };
 
   const captureDiv = async () => {
@@ -132,20 +133,15 @@ const GeneratedQr = () => {
       className="mt-0"
       style={{
         padding: "20px 20px",
-        height: "100vh",
+        height: "112vh",
         display: "flex",
         justifyContent: "center",
         overflow: "scroll",
       }}
     >
       <div>
+        {console.log(user.visitorCardURL)}
         <div className="d-flex">
-          <button
-            className="comman_btn mb-2 print_btn w-50"
-            onClick={() => captureDiv()}
-          >
-            Download
-          </button>
           <button
             className="comman_btn mb-2 mx-2 print_btn w-50"
             onClick={() => printDoc()}
@@ -159,7 +155,7 @@ const GeneratedQr = () => {
             borderRadius: "20px",
             width: "500px",
             border: "1px solid #3e4093",
-            maxHeight: "80vh",
+            maxHeight: "96vh",
           }}
           className=" h-100 px-2 py-1 bg-white"
           id="qrDiv"

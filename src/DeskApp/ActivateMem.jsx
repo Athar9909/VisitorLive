@@ -5,6 +5,7 @@ import { activateMembership } from "./apiServices/partnerHttpService/partnerLogi
 
 const ActivateMem = () => {
   const [completed, setCompleted] = useState(false);
+  const [file, setFile] = useState(null);
 
   const {
     register,
@@ -12,6 +13,7 @@ const ActivateMem = () => {
     formState: { errors },
   } = useForm();
 
+  console.log(file, "jjjjjjjj");
   const onSubmit = async (info) => {
     try {
       const alldata = {
@@ -22,8 +24,16 @@ const ActivateMem = () => {
         agentPhoneNumber: info?.number,
         userPhoneNumber: info?.number,
         address: info?.address,
+        image: file?.img,
       };
-      const { data } = await activateMembership(alldata);
+      const formData = new FormData();
+
+      for (const key in alldata) {
+        if (alldata[key]) {
+          formData.append(key, alldata[key]);
+        }
+      }
+      const { data } = await activateMembership(formData);
       if (!data.error) {
         setCompleted(true);
 
@@ -37,6 +47,10 @@ const ActivateMem = () => {
     }
   };
 
+  const handleFileChange = (e, key) => {
+    setFile({ ...file, [key]: e.target.files[0] });
+  };
+
   return (
     <div>
       <div className="row justify-content-center context">
@@ -47,11 +61,34 @@ const ActivateMem = () => {
                 <img src="/imgs/logo.png" alt="" />
               </a>
             </div>
-            <p className="title">Activate Authorized Membership Card </p>
+            <p className="title">Activate Authorized Buyer Membership Card </p>
             <p className="message">
               Fill this form now and we will contact you shortly!.{" "}
             </p>
             <div className="row">
+              <div className="mb-2 col-12 col-sm-12 col-md-12 col-xs-12">
+                <label>
+                  <div className="file-input-wrapper">
+                    <label
+                      style={{ color: "#eb3237" }}
+                      htmlFor="fileUpload"
+                      className="file-label fw-bold"
+                    >
+                      Upload Image
+                    </label>
+                    <input
+                      type="file"
+                      className="input  p-2"
+                      name="img"
+                      id="fileUpload"
+                      defaultValue=""
+                      accept="image/*"
+                      onChange={(e) => handleFileChange(e, "img")}
+                    />
+                  </div>
+                </label>
+              </div>
+
               <div className="mb-2 col-6 col-sm-12 col-md-6 col-xs-12">
                 <label>
                   <input
@@ -294,7 +331,8 @@ const ActivateMem = () => {
                 <span className="title">Form Submitted Successfully!</span>
                 <p className="message">
                   Thank you for your co-operation.Your membership card will sent
-                  to you on your registered emails.For more Visit{" "}
+                  to you on your registered emails after verification by web
+                  support team member.For more help call at 7709090404 or Visit{" "}
                   <Link
                     to={"https://www.starimporters.com/app/home"}
                     target="_blank"

@@ -16,6 +16,7 @@ function VisitorDash() {
   const [isScanned, setIsScanned] = useState(false);
   const [user, setUser] = useState([]);
   const [checkedIns, setCheckedIns] = useState([]);
+  const [checkedOuts, setCheckedOuts] = useState([]);
   const [barcode, setBarcode] = useState("");
   const inputRef = useRef(null);
   const [focus, setFocus] = useState(false);
@@ -34,7 +35,7 @@ function VisitorDash() {
   }, [focus]);
 
   useEffect(() => {
-    getVisitorsData();
+    getVisitorsData(currentPage1, "CheckedIn");
   }, [isScanned]);
 
   useEffect(() => {
@@ -101,14 +102,16 @@ function VisitorDash() {
     setBarcode("");
   };
 
-  const getVisitorsData = async (page) => {
+  const getVisitorsData = async (page, key) => {
     const { data, error } = await getVisitorsLog({
       page: page,
+      visitType: key,
     });
     console.log(data);
     if (!error) {
       if (data) {
         setCheckedIns(data?.results?.visitors?.usersList);
+        setCheckedOuts(data?.results?.visitors?.usersList);
         setLogCounts(data?.results?.logCount);
         setTotalPages1(data?.results?.totalPages);
         setTotalPages2(data?.results?.totalPages);
@@ -117,18 +120,19 @@ function VisitorDash() {
       }
     }
   };
+
   const handleInput = async (e) => {
     const value = e.target.value;
     await setBarcode(value);
   };
 
   const handlePages1 = async (value) => {
-    setCurrentPage1(value)
-    getVisitorsData(value);
+    setCurrentPage1(value);
+    getVisitorsData(value, "CheckedIn");
   };
   const handlePages2 = async (value) => {
-    setCurrentPage2(value)
-    getVisitorsData(value);
+    setCurrentPage2(value);
+    getVisitorsData(value, "CheckedOut");
   };
 
   console.log(barcode?.length);
@@ -197,7 +201,10 @@ function VisitorDash() {
                             role="tab"
                             aria-controls="home"
                             aria-selected="true"
-                            onClick={() => setCheckList("CheckIn")}
+                            onClick={() => {
+                              setCheckList("CheckIn");
+                              getVisitorsData(currentPage1, "CheckedIn");
+                            }}
                           >
                             Recent Checked In{" "}
                           </button>
@@ -216,7 +223,10 @@ function VisitorDash() {
                             role="tab"
                             aria-controls="profile"
                             aria-selected="false"
-                            onClick={() => setCheckList("CheckOut")}
+                            onClick={() => {
+                              setCheckList("CheckOut");
+                              getVisitorsData(currentPage2, "CheckedOut");
+                            }}
                           >
                             Recent Checked Out
                           </button>
@@ -315,27 +325,26 @@ function VisitorDash() {
                                           <th>S.No.</th>
                                           <th>Visitor Name</th>
                                           <th>Check-Out Time</th>
+                                          <th>Check-Out By</th>
                                           <th>Company Name</th>
                                           <th>Phone Number</th>
                                         </tr>
                                       </thead>
                                       <tbody>
-                                        {checkedIns
-                                          ?.filter(
-                                            (val) => val?.exitDate !== ""
-                                          )
-                                          .map((itm, id) => (
-                                            <tr>
-                                              <td>{id + 1}</td>
-                                              <td>{itm?.user?.firstName}</td>
-                                              <td>
-                                                {itm?.entryDate?.slice(0, 10)}{" "}
-                                                {itm?.entryTime}
-                                              </td>
-                                              <td>{itm?.user?.companyName}</td>
+                                        {checkedOuts?.map((itm, id) => (
+                                          <tr>
+                                            <td>{id + 1}</td>
+                                            <td>{itm?.user?.firstName}</td>
+                                            <td>
+                                              {itm?.entryDate?.slice(0, 10) +
+                                                " : " +
+                                                itm?.exitTime ?? "Failed"}
+                                            </td>
+                                            <td>{itm?.checkoutType}</td>
+                                            <td>{itm?.user?.companyName}</td>
 
-                                              <td>{itm?.user?.phoneNumber}</td>
-                                              {/* <td>
+                                            <td>{itm?.user?.phoneNumber}</td>
+                                            {/* <td>
                                               <div className="d-flex justify-content-center">
                                                 <a
                                                   href="dashboard-checked-in.html"
@@ -345,17 +354,17 @@ function VisitorDash() {
                                                 </a>
                                               </div>
                                             </td> */}
-                                            </tr>
-                                          ))}
+                                          </tr>
+                                        ))}
                                       </tbody>
                                     </table>
                                     <div className="mb-2">
-                                        <ResponsivePagination
-                                          current={currentPage2}
-                                          total={totalPages2}
-                                          onPageChange={handlePages2}
-                                        />
-                                      </div>
+                                      <ResponsivePagination
+                                        current={currentPage2}
+                                        total={totalPages2}
+                                        onPageChange={handlePages2}
+                                      />
+                                    </div>
                                   </div>
                                 </div>
                               </div>

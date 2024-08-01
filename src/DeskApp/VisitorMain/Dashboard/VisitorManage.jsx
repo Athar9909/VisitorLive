@@ -3,25 +3,35 @@ import DeskSidebar from "../../Common/DeskSidebar";
 import { DeskHead } from "../../Common/DeskHead";
 import { Link, useNavigate } from "react-router-dom";
 import { getAgents } from "../../apiServices/partnerHttpService/partnerLoginHttpService";
+import ResponsivePaginationComponent from "react-responsive-pagination";
 
 function VisitorManage() {
   const [visitors, setVisitors] = useState([]);
   const navigate = useNavigate();
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
 
   useEffect(() => {
     getVisitorsData();
-  }, []);
+  }, [currentPage]);
 
-  const getVisitorsData = async (key) => {
-    const { data, error } = await getAgents();
+  const getVisitorsData = async (search) => {
+    const { data, error } = await getAgents({
+      page: currentPage,
+      search: search,
+    });
     console.log(data);
     if (!error) {
       if (data) {
         setVisitors(data?.results?.agents?.agents);
+        setTotalPages(data?.results?.totalPages);
       } else {
         console.log("Data is undefined.");
       }
     }
+  };
+  const handlePages = async (value) => {
+    setCurrentPage(value);
   };
 
   return (
@@ -52,7 +62,7 @@ function VisitorManage() {
                       className="form-control"
                       type="text"
                       placeholder="Search"
-                      onChange={() => getVisitorsData()}
+                      onChange={(e) => getVisitorsData(e.target.value)}
                     />
                     <button>
                       <i className="fas fa-search" />
@@ -103,6 +113,13 @@ function VisitorManage() {
                         ))}
                       </tbody>
                     </table>
+                    <div className="mb-2">
+                      <ResponsivePaginationComponent
+                        current={currentPage}
+                        total={totalPages}
+                        onPageChange={handlePages}
+                      />
+                    </div>
                   </div>
                 </div>
               </div>

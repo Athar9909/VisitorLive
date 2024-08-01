@@ -2,24 +2,35 @@ import React, { Suspense, useEffect, useState } from "react";
 import DeskSidebar from "../../Common/DeskSidebar";
 import { DeskHead } from "../../Common/DeskHead";
 import { getVisitorsLog } from "../../apiServices/partnerHttpService/partnerLoginHttpService";
+import ResponsivePaginationComponent from "react-responsive-pagination";
 
 function VisitorLogs() {
   const [checkedIns, setCheckedIns] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
 
   useEffect(() => {
     getVisitorsData();
-  }, []);
+  }, [currentPage]);
 
-  const getVisitorsData = async () => {
-    const { data, error } = await getVisitorsLog({ page: 1 });
+  const getVisitorsData = async (search) => {
+    const { data, error } = await getVisitorsLog({
+      page: currentPage,
+      search: search,
+    });
     console.log(data);
     if (!error) {
       if (data) {
         setCheckedIns(data?.results?.visitors?.usersList);
+        setTotalPages(data?.results?.totalPages);
       } else {
         console.log("Data is undefined.");
       }
     }
+  };
+
+  const handlePages = async (value) => {
+    setCurrentPage(value);
   };
 
   return (
@@ -45,9 +56,10 @@ function VisitorLogs() {
                       className="form-control"
                       type="search"
                       placeholder="Search"
+                      onChange={(e) => getVisitorsData(e.target.value)}
                     />
                     <button>
-                      <i className="fas fa-search" />
+                      <i className="fas fa-search mt-3" />
                     </button>
                   </div>
                 </div>
@@ -91,6 +103,13 @@ function VisitorLogs() {
                         ))}
                       </tbody>
                     </table>
+                    <div className="mb-2">
+                      <ResponsivePaginationComponent
+                        current={currentPage}
+                        total={totalPages}
+                        onPageChange={handlePages}
+                      />
+                    </div>
                   </div>
                 </div>
               </div>

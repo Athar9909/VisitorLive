@@ -4,14 +4,31 @@ body {
   @apply leading-[normal] m-0;
   padding: 0;
   overflow-x: hidden;
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif !important;
+  font-size: small;
+  transform: scale(0.9); /* Scale the content to 80% */
+  transform-origin: top left; /* Ensure the scaling origin is the top left corner */
+  width: 111%; /* Adjust width to ensure content fits the viewport */
+  align-items: center;
+
+}
+
+@media print {
+  .print_btn {
+    display: none !important;
+  }
+  @page {
+    size: 4in 6in;
+    margin: 20mm;
+  scale:0;
+  }
 }
 
 a {
   text-decoration: none !important;
 }
 label {
-  font-size: 12px;
+  font-size: 8px;
 }
 
 *,
@@ -964,6 +981,7 @@ h6 {
 .admin_main {
   display: flex;
   background-color: #f2f2f2;
+  height: 100vh;
 }
 .admin_siderbarr {
   background-color: #fff;
@@ -971,7 +989,6 @@ h6 {
   padding: 22px 16px;
   z-index: 0;
   position: relative;
-  height: calc(100vh - 55px);
   overflow: auto;
 }
 .admin_siderbarr::-webkit-scrollbar {
@@ -1033,7 +1050,7 @@ h6 {
   width: 80%;
   padding: 25px 25px;
   overflow-y: scroll;
-  height: calc(100vh - 55px);
+  /* height: calc(100vh - 55px); */
 }
 .comman_design {
   background-color: #fff;
