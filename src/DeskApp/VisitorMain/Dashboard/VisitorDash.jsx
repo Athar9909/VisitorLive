@@ -273,9 +273,9 @@ function VisitorDash() {
                                                 {itm?.entryDate?.slice(0, 10)}{" "}
                                                 {itm?.entryTime}
                                               </td>
-                                              <td>{itm?.user?.companyName}</td>
+                                              <td>{itm?.user?.companyName ?? itm?.agent?.companyName}</td>
 
-                                              <td>{itm?.user?.phoneNumber}</td>
+                                              <td>{itm?.user?.phoneNumber ?? itm?.agent?.phoneNumber}</td>
                                               {/* <td>
                                                 <div className="d-flex justify-content-center">
                                                   <a
@@ -334,16 +334,16 @@ function VisitorDash() {
                                         {checkedOuts?.map((itm, id) => (
                                           <tr>
                                             <td>{id + 1}</td>
-                                            <td>{itm?.user?.firstName}</td>
+                                            <td>{itm?.user?.firstName ?? itm?.agent?.firstName }</td>
                                             <td>
                                               {itm?.entryDate?.slice(0, 10) +
                                                 " : " +
                                                 itm?.exitTime ?? "Failed"}
                                             </td>
                                             <td>{itm?.checkoutType}</td>
-                                            <td>{itm?.user?.companyName}</td>
+                                            <td>{itm?.user?.companyName ?? itm?.agent?.companyName}</td>
 
-                                            <td>{itm?.user?.phoneNumber}</td>
+                                            <td>{itm?.user?.phoneNumber ?? itm?.agent?.phoneNumber}</td> 
                                             {/* <td>
                                               <div className="d-flex justify-content-center">
                                                 <a
@@ -377,6 +377,7 @@ function VisitorDash() {
                 </div>
               </div>
             </div>
+
             <div className="col-5">
               <div className="row comman_design mx-0">
                 <div className="col-12">
@@ -465,7 +466,7 @@ function VisitorDash() {
                                 <h1 className="comman_heads">
                                   {user?.subUser
                                     ? user?.subUser?.companyName
-                                    : user?.user?.companyName}
+                                    : user?.user?.companyName ?? user?.companyName}
                                 </h1>
                               </div>
 
@@ -535,6 +536,7 @@ function VisitorDash() {
                       <button onClick={() => Deny()} className="comman_btn2">
                         Denied
                       </button>
+                      
                       {user?.isCheckedIn ? (
                         <button
                           onClick={() => CheckedOut()}
