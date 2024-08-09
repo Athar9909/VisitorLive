@@ -4,7 +4,6 @@ import { DeskHead } from "../../Common/DeskHead";
 import { Link, useNavigate } from "react-router-dom";
 import { getAgents } from "../../apiServices/partnerHttpService/partnerLoginHttpService";
 import ResponsivePaginationComponent from "react-responsive-pagination";
-
 function VisitorManage() {
   const [visitors, setVisitors] = useState([]);
   const navigate = useNavigate();
@@ -65,7 +64,7 @@ function VisitorManage() {
                       onChange={(e) => getVisitorsData(e.target.value)}
                     />
                     <button>
-                      <i className="fas fa-search" />
+                      <i className="fas fa-search mt-3" />
                     </button>
                   </div>
                 </div>
@@ -89,7 +88,7 @@ function VisitorManage() {
                       <tbody>
                         {visitors?.map((itm, id) => (
                           <tr>
-                            <td>{id + 1}</td>
+                            <td> {(currentPage - 1) * 10 + id + 1}</td>
                             <td>{itm?.firstName}</td>
                             <td>{itm?.companyName}</td>
                             <td>{itm?.phoneNumber}</td>

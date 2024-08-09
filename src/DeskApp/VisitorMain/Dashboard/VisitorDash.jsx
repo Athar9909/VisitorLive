@@ -10,7 +10,6 @@ import {
 } from "../../apiServices/partnerHttpService/partnerLoginHttpService";
 import socket from "../../Common/socket";
 import ResponsivePagination from "react-responsive-pagination";
-import "react-responsive-pagination/themes/minimal.css";
 
 function VisitorDash() {
   const [isScanned, setIsScanned] = useState(false);
@@ -163,7 +162,7 @@ function VisitorDash() {
               <div className="row d-flex justify-content-between">
                 <div className="col-md-6 mb-4">
                   <a href="javascript:;" className="staticss_box staticss_box1">
-                    <span>Today Checked In</span>
+                    <span>Total Checked In</span>
                     <div className="static_data">
                       <strong>{logCounts?.checkedIn[0]?.count}</strong>
                     </div>
@@ -267,15 +266,26 @@ function VisitorDash() {
                                         <tbody>
                                           {checkedIns?.map((itm, id) => (
                                             <tr>
-                                              <td>{id + 1}</td>
+                                              <td>
+                                                {(currentPage1 - 1) * 10 +
+                                                  id +
+                                                  1}
+                                              </td>
+
                                               <td>{itm?.agent?.firstName}</td>
                                               <td>
                                                 {itm?.entryDate?.slice(0, 10)}{" "}
                                                 {itm?.entryTime}
                                               </td>
-                                              <td>{itm?.user?.companyName ?? itm?.agent?.companyName}</td>
+                                              <td>
+                                                {itm?.user?.companyName ??
+                                                  itm?.agent?.companyName}
+                                              </td>
 
-                                              <td>{itm?.user?.phoneNumber ?? itm?.agent?.phoneNumber}</td>
+                                              <td>
+                                                {itm?.user?.phoneNumber ??
+                                                  itm?.agent?.phoneNumber}
+                                              </td>
                                               {/* <td>
                                                 <div className="d-flex justify-content-center">
                                                   <a
@@ -333,17 +343,28 @@ function VisitorDash() {
                                       <tbody>
                                         {checkedOuts?.map((itm, id) => (
                                           <tr>
-                                            <td>{id + 1}</td>
-                                            <td>{itm?.user?.firstName ?? itm?.agent?.firstName }</td>
+                                            <td>
+                                              {(currentPage2 - 1) * 10 + id + 1}
+                                            </td>
+                                            <td>
+                                              {itm?.user?.firstName ??
+                                                itm?.agent?.firstName}
+                                            </td>
                                             <td>
                                               {itm?.entryDate?.slice(0, 10) +
                                                 " : " +
                                                 itm?.exitTime ?? "Failed"}
                                             </td>
                                             <td>{itm?.checkoutType}</td>
-                                            <td>{itm?.user?.companyName ?? itm?.agent?.companyName}</td>
+                                            <td>
+                                              {itm?.user?.companyName ??
+                                                itm?.agent?.companyName}
+                                            </td>
 
-                                            <td>{itm?.user?.phoneNumber ?? itm?.agent?.phoneNumber}</td> 
+                                            <td>
+                                              {itm?.user?.phoneNumber ??
+                                                itm?.agent?.phoneNumber}
+                                            </td>
                                             {/* <td>
                                               <div className="d-flex justify-content-center">
                                                 <a
@@ -466,7 +487,8 @@ function VisitorDash() {
                                 <h1 className="comman_heads">
                                   {user?.subUser
                                     ? user?.subUser?.companyName
-                                    : user?.user?.companyName ?? user?.companyName}
+                                    : user?.user?.companyName ??
+                                      user?.companyName}
                                 </h1>
                               </div>
 
@@ -536,7 +558,7 @@ function VisitorDash() {
                       <button onClick={() => Deny()} className="comman_btn2">
                         Denied
                       </button>
-                      
+
                       {user?.isCheckedIn ? (
                         <button
                           onClick={() => CheckedOut()}

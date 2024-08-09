@@ -10,8 +10,20 @@ body {
   transform-origin: top left; /* Ensure the scaling origin is the top left corner */
   width: 111%; /* Adjust width to ensure content fits the viewport */
   align-items: center;
-
 }
+.pagination .active > .page-link {
+  z-index: 7 !important;
+  color: var(--pagination-active-color, var(--pagination-bg, #fff)) !important;
+  background-color: var(
+    --pagination-active-bg,
+    var(--pagination-color, #0d6efd)
+  ) !important;
+  border-color: var(
+    --pagination-active-border-color,
+    var(--pagination-active-bg, var(--pagination-color, #0d6efd))
+  ) !important;
+}
+
 @media print {
   .print_btn {
     display: none !important;
@@ -19,7 +31,6 @@ body {
   @page {
     size: 4in 6in;
     margin: 20mm;
-  
   }
 }
 a {
@@ -175,7 +186,6 @@ label {
   width: 100%;
   height: 50px;
   border: none;
-  
 }
 
 .eyepassword2 {
@@ -2190,8 +2200,6 @@ h6 {
   cursor: pointer;
   z-index: 99999;
   margin-top: -60px;
-
-
 }
 
 .logo_activate {
@@ -2294,7 +2302,7 @@ h6 {
 
 .form label .input:focus + span,
 .form label .input:valid + span {
-  top:26px;
+  top: 26px;
   font-size: 0.9em;
   font-weight: 600;
 }
@@ -2332,7 +2340,6 @@ h6 {
     height: 60px;
     padding: 15px 8px;
     position: relative;
-  
   }
   .logo_activate .logo {
     width: 60px;
@@ -2396,15 +2403,14 @@ h6 {
     max-width: 90%;
     padding: 10px;
     position: relative;
-left: 50%;
-transform: translate(-50%);
+    left: 50%;
+    transform: translate(-50%);
   }
 
   .logo_activate {
     width: 80px;
     height: 50px;
     padding: 10px 5px;
-   
   }
 
   .title {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { DeskHead } from "../Common/DeskHead";
 import DeskSidebar from "../Common/DeskSidebar";
 import { useForm } from "react-hook-form";
@@ -8,8 +8,9 @@ import { createNewVisitor } from "../apiServices/partnerHttpService/partnerLogin
 const CreateVisitor = () => {
   const navigate = useNavigate();
   const { register, handleSubmit } = useForm();
-
+  const [loader, setLoader] = useState(false);
   const onSubmit = async (info) => {
+    setLoader(true);
     try {
       const alldata = {
         firstName: info?.name,
@@ -22,11 +23,16 @@ const CreateVisitor = () => {
       const { data } = await createNewVisitor(alldata);
       if (!data.error) {
         navigate("/visitor/management");
+        setLoader(false);
       }
     } catch (error) {
       console.error("An error occurred:", error);
+      setLoader(false);
     } finally {
+      setLoader(false);
+
     }
+
   };
 
   return (
@@ -70,7 +76,7 @@ const CreateVisitor = () => {
                     </div>
 
                     <div className="form-group col-md-4">
-                      <label htmlFor="">Visitor Name</label>
+                      <label htmlFor="">Visitor First Name</label>
                       <input
                         type="text"
                         className="form-control"
@@ -121,12 +127,16 @@ const CreateVisitor = () => {
                       />
                     </div>
 
-                
-
                     <div className="form-group col-md-12 mt-md-3 mt-1 mb-0 text-md-start text-center">
-                      <button className="form_commanbtn" type="submit">
-                        Create Visitor
-                      </button>
+                      {loader ? (
+                        <button className="form_commanbtn" disabled>
+                          Saving...
+                        </button>
+                      ) : (
+                        <button className="form_commanbtn" type="submit">
+                          Create Visitor
+                        </button>
+                      )}
                     </div>
                   </form>
                 </div>

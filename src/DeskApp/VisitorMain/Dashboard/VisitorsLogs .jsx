@@ -54,7 +54,7 @@ function VisitorLogs() {
                   <div className="searchh_box position-relative">
                     <input
                       className="form-control"
-                      type="search"
+                      type="text"
                       placeholder="Search"
                       onChange={(e) => getVisitorsData(e.target.value)}
                     />
@@ -83,7 +83,7 @@ function VisitorLogs() {
                       <tbody>
                         {checkedIns?.map((itm, id) => (
                           <tr>
-                            <td>{id + 1}</td>
+                            <td> {(currentPage - 1) * 10 + id + 1}</td>
                             <td>{itm?.agent?.firstName}</td>
                             <td>
                               {itm?.entryDate?.slice(0, 10)} {itm?.entryTime}
@@ -108,6 +108,7 @@ function VisitorLogs() {
                         current={currentPage}
                         total={totalPages}
                         onPageChange={handlePages}
+                        
                       />
                     </div>
                   </div>
