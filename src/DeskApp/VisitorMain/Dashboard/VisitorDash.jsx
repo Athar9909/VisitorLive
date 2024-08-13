@@ -164,7 +164,7 @@ function VisitorDash() {
                   <a href="javascript:;" className="staticss_box staticss_box1">
                     <span>Total Checked In</span>
                     <div className="static_data">
-                      <strong>{logCounts?.checkedIn[0]?.count}</strong>
+                      <strong>{logCounts?.checkedIn[0]?.count ?? 0}</strong>
                     </div>
                   </a>
                 </div>
@@ -172,7 +172,7 @@ function VisitorDash() {
                   <a href="javascript:;" className="staticss_box">
                     <span>Live Checked In</span>
                     <div className="static_data">
-                      <strong>{logCounts?.liveChecked[0]?.count}</strong>
+                      <strong>{logCounts?.liveChecked[0]?.count ?? 0}</strong>
                     </div>
                   </a>
                 </div>
@@ -335,7 +335,7 @@ function VisitorDash() {
                                           <th>S.No.</th>
                                           <th>Visitor Name</th>
                                           <th>Check-Out Time</th>
-                                          <th>Check-Out By</th>
+                                          <th>Status</th>
                                           <th>Company Name</th>
                                           <th>Phone Number</th>
                                         </tr>

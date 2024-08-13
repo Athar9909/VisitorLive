@@ -76,6 +76,8 @@ function VisitorLogs() {
                           <th>Visitor Name</th>
                           <th>Check-In Time</th>
                           <th>Check-Out Time</th>
+                          <th>Status</th>
+
                           <th>Company Name</th>
                           <th>Phone Number</th>
                         </tr>
@@ -95,6 +97,7 @@ function VisitorLogs() {
                                 {itm?.exitDate?.slice(0, 10)} {itm?.exitTime}
                               </td>
                             )}
+                                            <td>{itm?.checkoutType}</td>
 
                             <td>{itm?.user?.companyName}</td>
 
